@@ -1,8 +1,10 @@
 <h1>Twitter API Client</h1>
 
 A Twitter API Client which fetches and displays Tweets that
-a) Have been re-tweeted at least once
-b) Contain the hashtag #custserv
+<ol>
+<li>a) Have been re-tweeted at least once</li>
+<li>b) Contain the hashtag #custserv</li>
+</ol>
 
 <h2>Features</h2>
 
@@ -17,7 +19,7 @@ b) Contain the hashtag #custserv
 
 <ul>
 	<li>Clone or download the source code zip</li>
-	<li>Pip install flask and twython</li>
+	<li>pip install flask and twython</li>
 	<li>Add your Twitter API credentials in ~/.bash_profile</li>
 	<li>Run python main.py from terminal</li>
 	<li>Open browser and navigate to localhost</li>
