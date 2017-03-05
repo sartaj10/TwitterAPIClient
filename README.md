@@ -2,8 +2,8 @@
 
 A Twitter API Client which fetches and displays Tweets that
 <ol>
-<li>a) Have been re-tweeted at least once</li>
-<li>b) Contain the hashtag #custserv</li>
+<li>Have been re-tweeted at least once</li>
+<li>Contain the hashtag #custserv</li>
 </ol>
 
 <h2>Features</h2>
