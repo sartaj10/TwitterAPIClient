@@ -1,2 +1,1 @@
-# TwitterAPIClient
-A simple Twitter API client in Python
+A simple Twitter API Client in Python
