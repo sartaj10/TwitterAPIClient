@@ -20,6 +20,7 @@ def main():
 # Fetch more tweets when user scrolls to the bottom of the page
 @app.route('/getMoreTweets', methods=['GET'])
 def getMoreTweets(max_id=None):	
+	
 	# Hashtag and max results to be retrieved
 	query = 'custserv'
 	count = 100
@@ -54,6 +55,7 @@ def getMoreTweets(max_id=None):
 			# Format time at which tweet is created
 			ts = time.strftime('%a %b %d %Y %H:%M:%S', time.strptime(tweet['created_at'],'%a %b %d %H:%M:%S +0000 %Y'))
 
+			# Build HTML to append new results to the existing tweets
 			html += "<div class='timeline-tweets panel panel-default'>";
 			html += "<div class='panel-body'>";
 			html += "<img src='" + tweet['user']['profile_image_url'] + "' class='img-thumbnail timeline' width='50'>";
