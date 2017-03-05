@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Periscope.io</title>
+    <title>Twitter API Client</title>
     <link href="../static/css/bootstrap.min.css" rel="stylesheet">
     <link href="../static/css/jumbotron-narrow.css" rel="stylesheet">
+    <script src="../static/js/jquery-1.11.3.min.js"></script>
   </head>
-
   <body>
 
     <div class="container">
@@ -14,17 +14,44 @@
           <ul class="nav nav-pills pull-right">
           </ul>
         </nav>
-        <h2 class="text-muted"><a href="/" style="text-decoration: none;">Periscope.io</a></h2> 
+        <h2 class="text-muted"><a href="/" style="text-decoration: none;">Twitter API Client</a></h2> 
       </div>
 
-      <div class="jumbotron">
-        <h1> Welcome to Periscope.io </h1>
-        <br>
-        <h2> Type SQL, Get Charts </h2>
-        <br>
-        <a href="/userHome" class = "btn btn-default btn-lg" style = "color : blue;">Get Started</a>
+    <div id="all-results">
+      {% set tweets = response.statuses %}
+      {% for tweet in tweets if tweet.retweet_count != 0 %}
+      
+      <div class = "timeline-tweets panel panel-default">
+        <div class="panel-body">
+          <img src="{{ tweet.user.profile_image_url }}" class="img-thumbnail timeline" width="50">
+            <a href="http://twitter.com/intent/user?screen_name={{tweet.user.screen_name}}" target='_blank'>{{tweet.user.name}}
+              <span class='text-muted'> @{{tweet.user.screen_name}}</span>
+            </a>
+          <br>{{tweet.text}}<br>
+          <span class='text-muted small'>{{ tweet.created_at|format_datetime }}</span>
+          <p class='tweet-controls' align='right'>
+            <a href='https://twitter.com/intent/tweet?in_reply_to={{tweet.id_str}}' target='_blank'> Reply</a>  |  
+            <a href='https://twitter.com/intent/favorite?tweet_id={{tweet.id_str}}' target='_blank'>Favorite</a>  |  
+            <a href='https://twitter.com/intent/retweet?tweet_id={{tweet.id_str}}' target='_blank'>Retweet</a>
+          </p>
+        </div>
+      </div>
+      {% endfor %}
 
-      </div> 
+      {% if response.search_metadata and response.search_metadata.next_results %}
+      <input type="hidden" value="{{response.search_metadata.next_results}}" id="next_id" />
+      {% endif %}
+      </ul>
+
+      <div class="row">
+        <div class="col-md-4 col-md-offset-4 loader_gif">
+
+        </div>
+      </div>
+
+
     </div>
+    </div>
+    <script type="text/javascript" src="../static/js/custom.js"></script>
   </body>
 </html>
