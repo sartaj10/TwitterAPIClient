@@ -1,2 +1,2 @@
-twython
-Flask
+twython==3.4.0
+Flask==0.12
