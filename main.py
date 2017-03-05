@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, json, url_for
 from connect import connect
 from twython import Twython
-import time
+import time, os
 
 app = Flask(__name__)
 
@@ -76,10 +76,10 @@ def format_datetime(value):
 	return ts
 
 def connect():
-	consumer_key="8L9PpfCsYB7LEsFWmWQ6RldgT"
-	consumer_secret="zW9ah3n9xjnv6axvgYoavAmv0KuvevTTpb4wcE1AvZRxIY3HrY"
-	access_token="635834750-vqlNvbLuZY8rE1eiIALAJIgw0Zc3xyKD6DMLuM4Q"
-	access_token_secret="3mFntjEgg9jJyXMiRYNP58YQzvRuwi0nTi3qcEpQKozuY"
+	consumer_key=os.environ.get('CONSUMER_KEY')
+	consumer_secret=os.environ.get('CONSUMER_SECRET')
+	access_token=os.environ.get('ACCESS_TOKEN')
+	access_token_secret=os.environ.get('ACCESS_TOKEN_SECRET')
 
 	api = Twython(consumer_key, consumer_secret, access_token, access_token_secret)
 	return api
