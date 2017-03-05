@@ -53,7 +53,8 @@ def getMoreTweets(max_id=None):
 
 			# Format time at which tweet is created
 			ts = time.strftime('%a %b %d %Y %H:%M:%S', time.strptime(tweet['created_at'],'%a %b %d %H:%M:%S +0000 %Y'))
-
+			
+			# Build HTML to append new results to the existing tweets
 			html += "<div class='timeline-tweets panel panel-default'>";
 			html += "<div class='panel-body'>";
 			html += "<img src='" + tweet['user']['profile_image_url'] + "' class='img-thumbnail timeline' width='50'>";
