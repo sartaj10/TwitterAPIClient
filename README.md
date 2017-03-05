@@ -17,7 +17,7 @@ b) Contain the hashtag #custserv
 
 <ul>
 	<li>Clone or download the source code zip</li>
-	<li>Pip install flask and twython</li>
+	<li>Run pip install -r requirements.txt to download the required dependencies</li>
 	<li>Add your Twitter API credentials in ~/.bash_profile</li>
 	<li>Run python main.py from terminal</li>
 	<li>Open browser and navigate to localhost</li>

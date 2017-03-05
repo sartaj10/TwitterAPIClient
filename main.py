@@ -31,7 +31,7 @@ def getMoreTweets(max_id=None):
 	if data == None:
 		return json.dumps({ 'status':400,
 							'html':'Invalid Request Parameters'
-						});;
+						});
 
 	fields = data[1:].split('&')
 
